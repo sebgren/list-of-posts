@@ -29,11 +29,8 @@ function limitString(title, limit) {
   >
     <div class="flex">
       <figure class="w-1/3">
-        <img
-          v-if="post.thumbnail"
-          :src="post.thumbnail"
-          alt="Shoes"
-        /><PhotoIcon class="text-gray-200" v-else />
+        <img v-if="post.thumbnail" :src="post.thumbnail" />
+        <PhotoIcon v-else class="text-gray-200" />
       </figure>
       <div class="flex-col w-2/3 self-center">
         <p class="flex text-sm items-center pb-2">
