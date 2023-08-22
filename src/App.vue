@@ -54,9 +54,6 @@ function nextPage() {
     config.count = config.count + config.limit
   }
   config.after = redditResponse.value.data.after
-  if (redditResponse.value.data.after == null) {
-    lastPage = true;
-  }
   config.before = null
   fetchData()
   scrollToTop()
