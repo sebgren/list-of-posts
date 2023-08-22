@@ -7,6 +7,7 @@ import {
   LinkIcon,
   PhotoIcon,
 } from "@heroicons/vue/24/outline";
+import { useLimitString } from '../composables/limitString'
 
 const props = defineProps({
   post: { type: Object, required: true },
@@ -14,12 +15,6 @@ const props = defineProps({
 
 defineEmits(["openPost"]);
 
-function limitString(title, limit) {
-  if (title.length > limit) {
-    return `${title.slice(0, limit)}...`;
-  }
-  return title;
-}
 </script>
 
 <template>
@@ -38,10 +33,10 @@ function limitString(title, limit) {
           <span class="">{{ post.author }}</span>
         </p>
         <h2 class="hidden md:block card-title pr-4">
-          {{ limitString(post.title, 200) }}
+          {{ useLimitString(post.title, 200) }}
         </h2>
         <h2 class="block md:hidden card-title pr-4">
-          {{ limitString(post.title, 50) }}
+          {{ useLimitString(post.title, 50) }}
         </h2>
         <p class="flex pt-2">
           <LinkIcon class="w-6 h-6" />
