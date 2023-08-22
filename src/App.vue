@@ -2,7 +2,6 @@
 import Modal from "./components/Modal.vue"
 import Post from "./components/Post.vue"
 import { ref } from "vue"
-import redditData from "./assets/data.json"
 import Pagination from "./components/Pagination.vue";
 
 /**
@@ -21,11 +20,7 @@ let config = {
   count: 0,
   page: 1
 }
-let after = null
-let before = null
-let limit = 2
-let count = 0
-let page = 1
+
 const redditResponse = ref(null)
 const selectedPost = ref({})
 const modalRef = ref(null)
@@ -70,22 +65,17 @@ function nextPage() {
 function scrollToTop(){
   window.scrollTo(0,0)
 }
-
-function openModal(post) {
-  selectedPost.value = post
-  modalRef.value.openModal()
-}
 </script>
 
 <template>
   <div class="flex flex-col mx-auto items-center">
-    <Modal :post="selectedPost" ref="modalRef"></Modal>
+    <Modal ref="modalRef"></Modal>
     <Post 
       v-if="redditResponse != null"
       v-for="post in redditResponse.data.children"
       :key="post.data.id"
       :post="post.data"
-      @openPost="openModal(post.data)"
+      @openPost="modalRef.openModal(post.data)"
     />
     <div v-else><span class="loading loading-dots loading-md"></span></div>
     <Pagination :page="config.page" @previous="previousPage" @next="nextPage"/>

@@ -15,9 +15,3 @@ defineEmits(['previous', 'next'])
     <button @click="$emit('next')" class="join-item btn">»</button>
   </div>
 </template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
