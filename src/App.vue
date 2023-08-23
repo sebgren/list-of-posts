@@ -4,15 +4,6 @@ import Post from "./components/Post.vue"
 import { ref } from "vue"
 import Pagination from "./components/Pagination.vue";
 
-/**
- * thumbnail => tom sträng om det inte finns en bild
- * created => UNIX-timestamp
- * num_comments => number
- * author => Specialare
- * score => numbers
- * permalink => http-länk
- * title => Vanlig sträng
- */
 let config = {
   after: null,
   before: null,
