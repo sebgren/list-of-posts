@@ -22,7 +22,6 @@ function openModal(newPost) {
 </script>
 
 <template>
-  <!-- Open the modal using ID.showModal() method -->
   <dialog v-show="post" id="post-modal" ref="modalRef" class="modal">
     <form method="dialog" class="modal-box max-w-4xl">
       <p class="flex text-sm items-center pb-2">
